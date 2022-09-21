@@ -179,7 +179,10 @@ footer a {
     top: 30px;
   }
 
-
+  .fa-circle-exclamation {
+    left: 200px;
+    top: 45px;
+  }
   .email-input {
     width: 280px;
     margin-bottom: 20px;
@@ -209,7 +212,7 @@ footer a {
     width: 100vw;
   }
 
-  footer{
+  footer {
     max-height: 80px;
   }
 }
