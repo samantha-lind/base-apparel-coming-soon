@@ -1,33 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/019689e63f.js"
+      crossorigin="anonymous"
+    ></script>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Base Apparel coming soon page</title>
+    <title>Frontend Mentor | Base Apparel coming soon page</title>
+  </head>
+  <body>
+    <main class="container">
+      <section class="coming-soon-text">
+        <div class="text-container">
+          <img src="./images/logo.svg" alt="Base Apparel logo" class="logo" />
+          <h1><span class="pink">We're</span> coming soon</h1>
+          <p>
+            Hello fellow shoppers! We're currently building our new fashion
+            store. Add your email below to stay up-to-date with announcements
+            and our launch deals.
+          </p>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+          <form onsubmit="return false;" novalidate>
+            <input
+              type="email"
+              class="email-input"
+              placeholder="Email Address"
+              id="email"
+              oninput="removeError()"
+            />
 
-  We're coming soon
+            <button
+              class="submit-button"
+              onclick="validateEmail(document.getElementById('email').value)"
+            >
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+            <span class="error-message hidden" id="error-message"
+              >Please provide a valid email</span
+            >
+          </form>
+          <span class="hidden" id="error-icon">
+            <i class="fa-solid fa-circle-exclamation"></i
+          ></span>
+        </div>
+      </section>
+      <section class="coming-soon-image">
+        <img
+          src="./images/hero-desktop.jpg"
+          alt="Girl in peach-coloured shirt wearing a bracelet"
+          class="hero-desktop"
+        />
+        <img
+          src="./images/hero-mobile.jpg"
+          alt="Girl in peach-coloured shirt wearing a bracelet"
+          class="hero-mobile"
+        />
+      </section>
+    </main>
+    <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://github.com/samantha-lind">Samantha Lind</a>.
+      </p>
+    </footer>
+    <script>
+      function validateEmail(emailInput) {
+        let result = /\S+@\S+\.\S+/.test(emailInput);
+        console.log(result);
 
-  Hello fellow shoppers! We're currently building our new fashion store. 
-  Add your email below to stay up-to-date with announcements and our launch deals.
+        if (!result) {
+          let email = document.getElementById("email");
+          let errorMessage = document.getElementById("error-message");
+          let errorIcon = document.getElementById("error-icon");
+          email.classList.add("input-error");
+          errorMessage.classList.remove("hidden");
+          errorIcon.classList.remove("hidden");
+        }
+      }
 
-  Email Address
-  
-  <footer>
-    <p class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
-    </p>
-  </footer>
-</body>
+      function removeError() {
+        let email = document.getElementById("email");
+        let errorMessage = document.getElementById("error-message");
+        let errorIcon = document.getElementById("error-icon");
+        email.classList.remove("input-error");
+        errorMessage.classList.add("hidden");
+        errorIcon.classList.add("hidden");
+      }
+    </script>
+  </body>
 </html>
