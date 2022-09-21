@@ -110,9 +110,11 @@ input[type="email"] {
   color: var(--soft-red);
 }
 
-.hidden {
+.hidden,
+.logo-container {
   display: none;
 }
+
 .error-message {
   font-size: 12px;
   color: var(--soft-red);
@@ -190,7 +192,7 @@ footer a {
 
   .logo {
     position: absolute;
-    top: 20px;
+    top: 30px;
     left: 30px;
     width: 100px;
   }
@@ -203,10 +205,6 @@ footer a {
     display: none;
   }
 
-  .coming-soon-image {
-    margin-top: 200px;
-  }
-
   .hero-mobile {
     display: block;
     width: 100vw;
@@ -214,5 +212,12 @@ footer a {
 
   footer {
     max-height: 80px;
+  }
+
+  .logo-container {
+    display: block;
+    height: 80px;
+    background-color: white;
+    witdth: 100vw;
   }
 }
